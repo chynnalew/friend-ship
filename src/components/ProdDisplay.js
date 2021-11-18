@@ -11,12 +11,16 @@ function ProdDisplay(props) {
   return (
     <React.Fragment>
       <div style={displayStyle}>
-        {props.productsList.map((product, index) =>
-          <Product name={product.name}
+        {props.productsList.map((product) =>
+          <Product
+            whenProdClicked={props.onIndividualProdClick}
+            whenAddToCartClicked={props.onAddToCartClick}
+            name={product.name}
             image={product.image}
             price={product.price}
             count={product.count}
-            key={index}
+            key={product.id}
+            id={product.id}
           />
         )}
       </div>
@@ -25,6 +29,8 @@ function ProdDisplay(props) {
 }
 
 ProdDisplay.propTypes = {
-  productsList: PropTypes.array
+  productsList: PropTypes.array,
+  onIndividualProdClick: PropTypes.func,
+  onAddToCartClick: PropTypes.func
 }
 export default ProdDisplay;

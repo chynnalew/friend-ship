@@ -21,7 +21,7 @@ function NavBar(props) {
         <button class='navLink' onClick={props.onAddProdClick}>Add Bracelet</button>
       </div>
       <div class='navLink' id='navLink3'>
-        <button class='navLink'>Cart</button>
+        <button class='navLink' onClick={props.onCartClick}>Cart</button>
       </div>
     </div>
   )
