@@ -11,6 +11,20 @@ function Product(props) {
     float: 'left'
   }
 
+  if (props.count === 0) {
+    return (
+      <React.Fragment>
+        <div style={productCardStyle}>
+          <h1>{props.name}</h1>
+          <div>{props.image}</div>
+          <p>Price: $ {props.price}</p>
+          <p>Quantity: {props.count}</p>
+          <button onClick={() => props.whenProdClicked(props.id)}>View Details</button>
+        </div>
+      </React.Fragment>
+    )
+  }
+
   return (
     <React.Fragment>
       <div style={productCardStyle}>
@@ -18,7 +32,7 @@ function Product(props) {
         <div>{props.image}</div>
         <p>Price: $ {props.price}</p>
         <p>Quantity: {props.count}</p>
-        <button onClick= {() => props.whenProdClicked(props.id)}>View Details</button>
+        <button onClick={() => props.whenProdClicked(props.id)}>View Details</button>
         <button onClick= {() => props.whenAddToCartClicked(props.id)}>Add to Cart</button>
       </div>
     </React.Fragment>

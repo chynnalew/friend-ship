@@ -1,5 +1,6 @@
 import React from 'react';
 import CartProduct from './CartProduct';
+import PropTypes from "prop-types";
 
 function Cart(props) {
   const cartStyle = {
@@ -14,6 +15,7 @@ function Cart(props) {
         <h1>Your Cart</h1>
         {props.cartList.map((product) =>
           <CartProduct
+            whenRemoveFromCartClicked={props.onRemoveFromCartClick}
             name={product.name}
             image={product.image}
             price={product.price}
@@ -24,6 +26,10 @@ function Cart(props) {
       </div>
     </React.Fragment>
   )
+}
+
+Cart.propTypes = {
+  onRemoveFromCartClick: PropTypes.func
 }
 
 export default Cart;

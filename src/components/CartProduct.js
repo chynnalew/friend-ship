@@ -17,7 +17,7 @@ function CartProduct(props) {
         <h1>{props.name}</h1>
         <div>{props.image}</div>
         <p>Price: $ {props.price}</p>
-        <button>Remove From Cart</button>
+        <button onClick= {() => props.whenRemoveFromCartClicked(props.id)}>Remove From Cart</button>
       </div>
     </React.Fragment>
   )
@@ -30,6 +30,7 @@ CartProduct.propTypes = {
   price: PropTypes.number,
   count: PropTypes.number,
   id: PropTypes.string,
+  whenRemoveFromCartClicked: PropTypes.func
 }
 
 export default CartProduct;

@@ -90,6 +90,13 @@ class LittlePappa extends React.Component {
     this.setState({cartVisible: true, formVisible: false, listVisible: false, viewVisible: false});
   }
 
+  handleRemoveFromCartClick = (id) => {
+    const selectedProductIndex = this.state.cartList.indexOf(product => product.id === id)[0];
+    this.state.productsList.filter(product => product.id === id)[0].count++;
+    this.state.cartList.splice(selectedProductIndex);
+    this.setState({formVisible:false, listVisible:true, viewVisible:false, cartVisible:false})
+  }
+
   render() {
     let currentlyVisibleState = null;
     if (this.state.formVisible) {
@@ -99,10 +106,10 @@ class LittlePappa extends React.Component {
       currentlyVisibleState = <ProdDisplay productsList={this.state.productsList} onIndividualProdClick={this.handleViewProdClick} onAddToCartClick={this.handleAddToCartClick}/>
     }
     if (this.state.viewVisible) {
-      currentlyVisibleState = <ViewProd product = {this.state.selectedProduct} />
+      currentlyVisibleState = <ViewProd product = {this.state.selectedProduct} onAddToCartClick={this.handleAddToCartClick}/>
     }
     if (this.state.cartVisible) {
-      currentlyVisibleState = <Cart cartList= {this.state.cartList} />
+      currentlyVisibleState = <Cart cartList= {this.state.cartList} onRemoveFromCartClick={this.handleRemoveFromCartClick}/>
     }
     return (
       <React.Fragment>
