@@ -1,0 +1,20 @@
+.navLink{
+  color:grey;
+  font-size: large;
+  display: inline;
+  float: left;
+  margin: auto;
+  padding-right: 10%;
+  padding-left: 10%;
+  text-align: center;
+}
+.navLink:hover{
+  font-weight: bolder;
+  color: rgb(159, 23, 238);
+  text-decoration: none;
+  text-shadow: 0px 0px 5px pink;
+}
+.navLink button {
+  border: none;
+  background-color: transparent;
+}
